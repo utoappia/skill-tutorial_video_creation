@@ -25,14 +25,66 @@ The skill is in [`skills/scripted-video/`](skills/scripted-video/).
 
 ## Installing
 
-Copy or link `skills/scripted-video` into the place your agent reads skills from. For Claude Code:
+A skill is a folder with a `SKILL.md` in it. Install it by putting `skills/scripted-video` where
+your agent looks for skills. You can install it for every project on your computer or for one
+repository only.
+
+First get the files:
 
 ```
-cp -R skills/scripted-video ~/.claude/skills/scripted-video          # for every project
-cp -R skills/scripted-video <project>/.claude/skills/scripted-video  # for one project
+git clone https://github.com/utoappia/skill-tutorial_video_creation.git videomakingskill
 ```
 
-Then ask for a video: "make a two-minute explainer about why the sea has tides".
+### For every project on this computer
+
+Claude Code reads personal skills from `~/.claude/skills/`:
+
+```
+mkdir -p ~/.claude/skills
+cp -R videomakingskill/skills/scripted-video ~/.claude/skills/
+```
+
+### For one repository only
+
+Claude Code also reads skills from `.claude/skills/` inside a repository. The skill is then
+available only when you work in that repository. If you commit the folder, everyone who clones
+the repository gets it too.
+
+```
+cd <your-repository>
+mkdir -p .claude/skills
+cp -R <path-to>/videomakingskill/skills/scripted-video .claude/skills/
+git add .claude/skills/scripted-video   # optional: share it with the team
+```
+
+If the same skill is installed in both places, the personal copy in `~/.claude/skills/` wins.
+
+### Keeping it up to date
+
+To have `git pull` update the skill, link it instead of copying it:
+
+```
+ln -s "$(pwd)/videomakingskill/skills/scripted-video" ~/.claude/skills/scripted-video
+```
+
+A link to a folder outside the repository won't work for anyone else, so commit a copy if you
+want to share the skill with a team.
+
+### Other agents
+
+Other agents that read `SKILL.md` folders have a personal skills folder and a repository skills
+folder too. Their names differ from agent to agent, so check your agent's documentation and copy
+`skills/scripted-video` into the folder it names.
+
+### Using it
+
+Start a new session so the agent finds the skill. Then ask for a video, for example "make a
+two-minute explainer about why the sea has tides". In Claude Code you can also call it by name
+with `/scripted-video`.
+
+Wherever the skill is installed, it copies its engine (`starter/`) into the project you are
+working in, as `video/` for example. The scripts, notes and finished videos stay in that project.
+Nothing is written into the skill folder.
 
 ## What the machine needs
 
