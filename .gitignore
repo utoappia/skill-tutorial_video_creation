@@ -1,0 +1,7 @@
+.DS_Store
+node_modules/
+
+# Test videos made while building the skill (not part of the skill)
+video/
+skills/scripted-video/starter/videos/leap-year.mjs
+skills/scripted-video/starter/notes/leap-year/

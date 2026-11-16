@@ -1,0 +1,52 @@
+<!doctype html>
+<!-- The live player (node tools/serve.mjs). Keys: space play/pause · ←/→ one frame · shift+←/→ one second
+     · [ ] previous/next line · C captions · R reload the script · A audit this frame -->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Player</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #0d0f12; color: #d7dbe0; font: 14px/1.4 system-ui, sans-serif; }
+      body { display: flex; flex-direction: column; }
+      header, footer { display: flex; gap: 10px; align-items: center; padding: 8px 12px; flex-wrap: wrap; }
+      select, button { background: #1b1f26; color: inherit; border: 1px solid #333a45; border-radius: 6px; padding: 5px 9px; font: inherit; cursor: pointer; }
+      button:hover, select:hover { border-color: #5a6575; }
+      #view { flex: 1; position: relative; min-height: 0; background: #000; }
+      #bar { position: relative; height: 22px; margin: 0 12px; cursor: pointer; }
+      #track { position: absolute; left: 0; right: 0; top: 9px; height: 4px; background: #2a3039; border-radius: 2px; }
+      #done { position: absolute; left: 0; top: 9px; height: 4px; background: #ffcf3f; border-radius: 2px; }
+      .tick { position: absolute; top: 4px; width: 2px; height: 14px; background: #8a94a3; }
+      .line { position: absolute; top: 15px; height: 3px; background: #3f6fb0; }
+      #time { font-variant-numeric: tabular-nums; min-width: 150px; }
+      #now { flex: 1; min-width: 200px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #9aa4b2; }
+      #problems { margin: 0; padding: 0 12px 8px 30px; color: #ffb4a8; max-height: 120px; overflow: auto; }
+      #problems:empty { display: none; }
+      #error { color: #ff8f7d; white-space: pre-wrap; padding: 0 12px; }
+      .spacer { flex: 1; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <select id="video" title="Video"></select>
+      <select id="language" title="Language"></select>
+      <select id="layout" title="Layout"></select>
+      <select id="speed" title="Speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option><option value="2">2×</option></select>
+      <label><input type="checkbox" id="captions" checked /> captions</label>
+      <span class="spacer"></span>
+      <span id="voice"></span>
+      <button id="reload" title="Reload the script (R)">Reload</button>
+      <button id="audit" title="List what is wrong with this frame (A)">Audit frame</button>
+    </header>
+    <div id="error"></div>
+    <div id="view"></div>
+    <div id="bar"><div id="track"></div><div id="done"></div></div>
+    <footer>
+      <button id="play">Play</button>
+      <span id="time">0:00.0 / 0:00.0</span>
+      <span id="now"></span>
+    </footer>
+    <ul id="problems"></ul>
+    <script type="module" src="./player.js"></script>
+  </body>
+</html>

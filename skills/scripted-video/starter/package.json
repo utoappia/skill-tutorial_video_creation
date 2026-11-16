@@ -1,0 +1,24 @@
+{
+  "name": "scripted-video-project",
+  "private": true,
+  "type": "module",
+  "description": "Videos written as scripts: checked, previewed and exported to mp4 from the command line.",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "new": "node tools/new.mjs",
+    "check": "node tools/check.mjs",
+    "dump": "node tools/dump.mjs",
+    "stills": "node tools/stills.mjs",
+    "voice": "node tools/tts.mjs",
+    "sound": "node tools/sound.mjs",
+    "export": "node tools/export.mjs",
+    "frames": "node tools/frames.mjs",
+    "bundle": "node tools/bundle.mjs",
+    "translate": "node tools/i18n.mjs",
+    "mindmap": "node tools/mindmap.mjs",
+    "preview": "node tools/serve.mjs"
+  },
+  "dependencies": {
+    "playwright-core": "^1.48.0"
+  }
+}

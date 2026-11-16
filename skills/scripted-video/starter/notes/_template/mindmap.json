@@ -1,0 +1,25 @@
+{
+  "title": "{{title}}",
+  "audience": "Who the video is for, in one sentence.",
+  "promise": "After watching, the viewer can …",
+  "nodes": [
+    {
+      "id": "question",
+      "label": "The question the video answers",
+      "kind": "question",
+      "use": "core",
+      "children": [
+        {
+          "id": "first-idea",
+          "label": "The first thing the viewer must understand",
+          "note": "A short reminder of the point. The details stay in the research note.",
+          "kind": "claim",
+          "use": "core",
+          "research": ["00-how-to-research.md"],
+          "needs": [],
+          "links": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" width="1000" height="640">
+  <!-- A simple drawing made for the example video. Free to reuse. -->
+  <circle cx="170" cy="150" r="80" fill="#ffcf3f"/>
+  <g stroke="#ffcf3f" stroke-width="12" stroke-linecap="round">
+    <line x1="290" y1="150" x2="350" y2="150"/><line x1="255" y1="235" x2="298" y2="278"/><line x1="170" y1="270" x2="170" y2="330"/>
+    <line x1="255" y1="65" x2="298" y2="22"/>
+  </g>
+  <path d="M560 520 C560 420 540 330 560 220" fill="none" stroke="#3fae5a" stroke-width="22" stroke-linecap="round"/>
+  <ellipse cx="660" cy="310" rx="115" ry="48" fill="#4cc46a" transform="rotate(-24 660 310)"/>
+  <ellipse cx="455" cy="380" rx="105" ry="44" fill="#3fae5a" transform="rotate(22 455 380)"/>
+  <ellipse cx="575" cy="190" rx="70" ry="34" fill="#63d680" transform="rotate(-70 575 190)"/>
+  <path d="M440 500 H680 L650 620 H470 Z" fill="#b5653a"/>
+  <rect x="425" y="480" width="270" height="40" rx="10" fill="#cf7a48"/>
+</svg>
