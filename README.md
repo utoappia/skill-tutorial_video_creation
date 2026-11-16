@@ -25,9 +25,24 @@ The skill is in [`skills/scripted-video/`](skills/scripted-video/).
 
 ## Installing
 
-A skill is a folder with a `SKILL.md` in it. Install it by putting `skills/scripted-video` where
-your agent looks for skills. You can install it for every project on your computer or for one
+A skill is a folder with a `SKILL.md` in it. Installing it means putting `skills/scripted-video`
+where your agent looks for skills, either for every project on your computer or for one
 repository only.
+
+### With one command
+
+The [`skills`](https://github.com/vercel-labs/skills) tool (it needs Node.js 22 or newer)
+finds the coding agents on your computer, asks which ones should get the skill, and copies it in:
+
+```
+npx skills add utoappia/skill-tutorial_video_creation        # this repository only
+npx skills add utoappia/skill-tutorial_video_creation -g     # every project on this computer
+```
+
+Add `-a claude-code` (or another agent's name) to skip the question. Later, `npx skills update`
+brings the skill up to date.
+
+### By hand
 
 First get the files:
 
@@ -35,7 +50,7 @@ First get the files:
 git clone https://github.com/utoappia/skill-tutorial_video_creation.git videomakingskill
 ```
 
-### For every project on this computer
+#### For every project on this computer
 
 Claude Code reads personal skills from `~/.claude/skills/`:
 
@@ -44,7 +59,7 @@ mkdir -p ~/.claude/skills
 cp -R videomakingskill/skills/scripted-video ~/.claude/skills/
 ```
 
-### For one repository only
+#### For one repository only
 
 Claude Code also reads skills from `.claude/skills/` inside a repository. The skill is then
 available only when you work in that repository. If you commit the folder, everyone who clones
@@ -59,7 +74,7 @@ git add .claude/skills/scripted-video   # optional: share it with the team
 
 If the same skill is installed in both places, the personal copy in `~/.claude/skills/` wins.
 
-### Keeping it up to date
+#### Keeping it up to date
 
 To have `git pull` update the skill, link it instead of copying it:
 
@@ -72,9 +87,9 @@ want to share the skill with a team.
 
 ### Other agents
 
-Other agents that read `SKILL.md` folders have a personal skills folder and a repository skills
-folder too. Their names differ from agent to agent, so check your agent's documentation and copy
-`skills/scripted-video` into the folder it names.
+`npx skills add` knows where each agent keeps its skills (Codex and several others use
+`.agents/skills/` in a repository and `~/.agents/skills/` for every project). To install by hand
+for another agent, copy `skills/scripted-video` into the folder its documentation names.
 
 ### Using it
 
