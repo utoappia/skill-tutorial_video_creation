@@ -39,8 +39,20 @@ npx skills add utoappia/skill-tutorial_video_creation        # this repository o
 npx skills add utoappia/skill-tutorial_video_creation -g     # every project on this computer
 ```
 
-Add `-a claude-code` (or another agent's name) to skip the question. Later, `npx skills update`
-brings the skill up to date.
+Add `-a claude-code` (or another agent's name) to skip the question.
+
+To update the skill later:
+
+```
+npx skills check                   # is there a newer version? (changes nothing)
+npx skills update -p               # update the skills of this repository
+npx skills update -g               # update the skills installed with -g
+```
+
+Without `-p` or `-g`, `update` asks which of the two to update. An update keeps your own edits
+to the installed files. To throw those away and go back to the published version, run
+`npx skills install --force`. To uninstall, run `npx skills remove scripted-video` (add `-g` for
+a global install).
 
 ### By hand
 
